@@ -19,7 +19,10 @@
     "dev:node": "node scripts/dev-local.mjs",
     "preview": "bun run build && vite preview",
     "typegen": "bun run cf-typegen 1>/dev/null && react-router typegen",
-    "typecheck": "react-router typegen && tsc -b && bun run check:article-internal-links"
+    "typecheck": "react-router typegen && tsc -b && bun run check:article-internal-links",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage --coverage-reporter=text --coverage-reporter=lcov --coverage-dir=coverage",
+    "test:coverage:check": "bun run test:coverage && bunx --yes tsx scripts/check-coverage.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
